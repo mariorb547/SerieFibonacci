@@ -1,38 +1,27 @@
-function fibonacci() {
-    numero = parseInt($("#numero").val());
-      if(numero>0 && numero<=12){
-        
-        let resiltNumero1 = fibonacci_series(numero);
-        let resiltNumero2 = fibonacci_series(numero + 1);
+function fibonacci(valor) {
+  if ((valor > 0) && (valor <= 12)) {
+    var x = 0;
+    var arreglo = [];
+    valorX = parseInt(valor);
+    valorY = (parseInt($("#numero").val()) + 1);
 
-        $("#tableResultados").append(`
-        <tr>
-            <td>
-                ${numero}
-            </td>
-            <td>
-                ${resiltNumero1[resiltNumero1.length - 1]}
-             </td>
-            <td>
-                ${resiltNumero2[resiltNumero2.length - 1]}
-            </td>
-            <td>
-                ${
-                resiltNumero1[resiltNumero1.length - 1] +
-                resiltNumero2[resiltNumero2.length - 1]
-                }
-            </td>
-        </tr> 
-       `);
+    for (x; x <= valorX; x++) {
+      if (x == 0) {
+        arreglo.push(0);
+      } else if (x == 1) {
+        arreglo.push(1);
+      } else {
+        arreglo.push(arreglo[x - 1] + arreglo[x - 2]);
+      }
+    }
+
+    if (valorX > valorY) {
+      return;
+    } else {
+      $("#result").html(
+        "<strong>Resultado: </strong>" + (arreglo[arreglo.length - 1] + fibonacci(valorX + 1))
+      );
+      return arreglo[arreglo.length - 1];
     }
   }
-
-  var fibonacci_series = function (numero) {
-    if (numero === 1) {
-      return [0, 1];
-    } else {
-      var serie = fibonacci_series(numero - 1);
-      serie.push(serie[serie.length - 1] + serie[serie.length - 2]);
-      return serie;
-    }
-  };
+}

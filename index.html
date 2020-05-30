@@ -26,27 +26,17 @@
                 id="numero"
                 placeholder="Ingrese numero entre  un rango de 1 - 12"
                 min="1"
-                max="12"
+                max="11"
               />
             </div>
-            <button type="submit" class="btn btn-primary" onClick="fibonacci()">
+            <button type="submit" class="btn btn-primary" id="btnFibonacci">
               Aceptar
             </button>
           </form>
 
           <section>
               <br>
-            <table class="table" id="tableResultados">
-              <thead class="thead-dark">
-                <tr>
-                  <th scope="col">No. Entrada</th>
-                  <th scope="col">fibonnaci(n)</th>
-                  <th scope="col">fibonnaci(n+1)</th>
-                  <th scope="col">Resultado</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
+              <label for="result" id="result"></label>
           </section>
         </div>
       </div>
@@ -74,4 +64,9 @@
   <script
     src="index.js"
   ></script>
+  <script>
+    $("#btnFibonacci").click(function(){
+      fibonacci($("#numero").val());
+    })
+  </script>
 </html>
